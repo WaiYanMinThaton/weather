@@ -1,0 +1,296 @@
+<!-- start forecast -->
+<section class="" id="forecast">
+    <div class="container">
+        <!--start search-->
+        <div class="row  fw-bolder">
+            <div class="text-center fs-1 m-3">The weather forecast(only next 10days) of</div>
+        </div>
+
+        <div class="row">
+            <form>
+                <input type="text" id="fcity" class=" rounded-pill fs-3 col-5" placeholder="Enter your city(eg.Yangon)" required>
+                <span class="fs-3 m-3">at next</span>
+                <select id="fdate" class=" rounded-pill fs-3 col-1">
+                        <option value=1>1 day</option>
+                        <option value=2>2 day</option>
+                        <option value=3>3 day</option>
+                        <option value=4>4 day</option>
+                        <option value=5>5 day</option>
+                        <option value=6>6 day</option>
+                        <option value=7>7 day</option>
+                        <option value=8>8 day</option>
+                        <option value=9>9 day</option>
+                        <option value=10>10 day</option>
+
+                    </select>
+                <input type="button" id="fsearch" name="fsearch" class="fs-3 rounded-pill" value="search">
+            </form>
+            <div class="row">
+                <h3 class="d-none" id="fnotFound">This city name not found!</h3>
+            </div>
+        </div>
+        <!--end search-->
+        <!--start result-->
+
+        <div class="d-none " id="fresult">
+            <table class="my-5" style="width: 100%;">
+                <tr class="my-5 ">
+                    <th colspan="5" class="fs-3">The weather condition in <span id="fcityname"></span> at <span id="fdate2"></span></th>
+                </tr>
+                <tr class="row w-100 mt-4">
+                    <td class='col-2 bg-danger'>sunrise:<span id='fsunrise'></span><br>sunset:<span id='fsunset'></span></td>
+                    <td class='col-2 bg-light-subtle'>moonrise:<span id='fmoonrise'></span><br>moonset:<span id='fmoonset'></span></td>
+                    <td class='col-2 bg-danger'>Max temp:<br><span id='fmaxtemp'></span></td>
+                    <td class='col-2 bg-danger-subtle'> Min temp:<br><span id='fmintemp'></span></td>
+                    <td class='col-2 bg-light'> Max Wind:<br><span id='fmaxwind'></span></td>
+                </tr>
+            </table>
+            <div class=" overflow-x-scroll">
+                <table class="my-3 fs-5">
+                    <tr>
+                        <th></th>
+                        <th class="border-3">6.00AM</th>
+                        <th class="border-3">9.00AM</th>
+                        <th class="border-3">12.00AM</th>
+                        <th class="border-3">3.00PM</th>
+                        <th class="border-3">6.00PM</th>
+                    </tr>
+                    <tr>
+                        <th>Icon</th>
+                        <td class="border-3"><img src="" id="ficon6am"></td>
+                        <td class="border-3"><img src="" id="ficon9am"></td>
+                        <td class="border-3"><img src="" id="ficon12am"></td>
+                        <td class="border-3"><img src="" id="ficon3pm"></td>
+                        <td class="border-3"><img src="" id="ficon6pm"></td>
+                    </tr>
+                    <tr>
+                        <th>Temp</th>
+                        <td class="border-3"><span id="ftemp6am"></span>°C</td>
+                        <td class="border-3"><span id="ftemp9am"></span>°C</td>
+                        <td class="border-3"><span id="ftemp12am"></span>°C</td>
+                        <td class="border-3"><span id="ftemp3pm"></span>°C</td>
+                        <td class="border-3"><span id="ftemp6pm"></span>°C</td>
+                    </tr>
+                    <tr>
+                        <th>Humidity</th>
+                        <td class="border-3"><span id="fhumidity6am"></span></td>
+                        <td class="border-3"><span id="fhumidity9am"></span></td>
+                        <td class="border-3"><span id="fhumidity12am"></span></td>
+                        <td class="border-3"><span id="fhumidity3pm"></span></td>
+                        <td class="border-3"><span id="fhumidity6pm"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Wind</th>
+                        <td class="border-3"><span id="fwind6am"></span> mph</td>
+                        <td class="border-3"><span id="fwind9am"></span> mph</td>
+                        <td class="border-3"><span id="fwind12am"></span> mph</td>
+                        <td class="border-3"><span id="fwind3pm"></span> mph</td>
+                        <td class="border-3"><span id="fwind6pm"></span> mph</td>
+                    </tr>
+                    <tr>
+                        <th>UV</th>
+                        <td class="border-3"><span id="fuv6am"></span></td>
+                        <td class="border-3"><span id="fuv9am"></span></td>
+                        <td class="border-3"><span id="fuv12am"></span></td>
+                        <td class="border-3"><span id="fuv3pm"></span></td>
+                        <td class="border-3"><span id="fuv6pm"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Cloud</th>
+                        <td class="border-3"><span id="fcloud6am"></span>%</td>
+                        <td class="border-3"><span id="fcloud6am"></span>%</td>
+                        <td class="border-3"><span id="fcloud6am"></span>%</td>
+                        <td class="border-3"><span id="fcloud6am"></span>%</td>
+                        <td class="border-3"><span id="fcloud6am"></span>%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--end result-->
+    </div>
+</section>
+<!-- end forecast -->
+<!-- start history -->
+<section id="history">
+    <div class="container my-5">
+        <!--start search-->
+        <div class="row  fw-bolder">
+            <div class="text-center fs-1 m-3">The weather history of</div>
+        </div>
+
+        <div class="row">
+            <form>
+                <input type="text" id="hcity" class=" rounded-pill fs-3 col-5" placeholder="Enter your city(eg.Yangon)" required>
+                <span class="fs-3 m-3">at</span>
+                <input type="date" id="hdate" class=" rounded-pill fs-3 col-4" required>
+                <input type="button" id="hsearch" name="hsearch" class="fs-3 rounded-pill" value="search">
+            </form>
+        </div>
+        <!--end search-->
+        <!--start result-->
+        <div class=" " id="hresult">
+            <table class="my-5" style="width: 100%;">
+                <tr class="my-5 ">
+                    <th colspan="5" class="fs-3">The weather condition in <span id="hcityname"></span> at <span id="hdate2"></span></th>
+                </tr>
+                <tr class="row w-100 mt-4">
+                    <td class='  col-2 bg-danger'>sunrise:<span id='sunrise'></span><br>sunset:<span id='sunset'></span></td>
+                    <td class='col-2 bg-light-subtle'>moonrise:<span id='moonrise'></span><br>moonset:<span id='moonset'></span></td>
+                    <td class='col-2 bg-danger'>Max temp:<br><span id='maxtemp'></span></td>
+                    <td class='col-2 bg-danger-subtle'> Min temp:<br><span id='mintemp'></span></td>
+                    <td class='col-2 bg-light'> Max Wind:<br><span id='maxwind'></span></td>
+                </tr>
+            </table>
+            <div class=" overflow-x-scroll">
+                <table class="my-3 fs-5">
+                    <tr>
+                        <th></th>
+                        <th class="border-3">6.00AM</th>
+                        <th class="border-3">9.00AM</th>
+                        <th class="border-3">12.00AM</th>
+                        <th class="border-3">3.00PM</th>
+                        <th class="border-3">6.00PM</th>
+                    </tr>
+                    <tr>
+                        <th>Icon</th>
+                        <td class="border-3"><img src="" id="icon6am"></td>
+                        <td class="border-3"><img src="" id="icon9am"></td>
+                        <td class="border-3"><img src="" id="icon12am"></td>
+                        <td class="border-3"><img src="" id="icon3pm"></td>
+                        <td class="border-3"><img src="" id="icon6pm"></td>
+                    </tr>
+                    <tr>
+                        <th>Temp</th>
+                        <td class="border-3"><span id="temp6am"></span>°C</td>
+                        <td class="border-3"><span id="temp9am"></span>°C</td>
+                        <td class="border-3"><span id="temp12am"></span>°C</td>
+                        <td class="border-3"><span id="temp3pm"></span>°C</td>
+                        <td class="border-3"><span id="temp6pm"></span>°C</td>
+                    </tr>
+                    <tr>
+                        <th>Humidity</th>
+                        <td class="border-3"><span id="humidity6am"></span></td>
+                        <td class="border-3"><span id="humidity9am"></span></td>
+                        <td class="border-3"><span id="humidity12am"></span></td>
+                        <td class="border-3"><span id="humidity3pm"></span></td>
+                        <td class="border-3"><span id="humidity6pm"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Wind</th>
+                        <td class="border-3"><span id="wind6am"></span> mph</td>
+                        <td class="border-3"><span id="wind9am"></span> mph</td>
+                        <td class="border-3"><span id="wind12am"></span> mph</td>
+                        <td class="border-3"><span id="wind3pm"></span> mph</td>
+                        <td class="border-3"><span id="wind6pm"></span> mph</td>
+                    </tr>
+                    <tr>
+                        <th>UV</th>
+                        <td class="border-3"><span id="uv6am"></span></td>
+                        <td class="border-3"><span id="uv9am"></span></td>
+                        <td class="border-3"><span id="uv12am"></span></td>
+                        <td class="border-3"><span id="uv3pm"></span></td>
+                        <td class="border-3"><span id="uv6pm"></span></td>
+                    </tr>
+                    <tr>
+                        <th>Cloud</th>
+                        <td class="border-3"><span id="cloud6am"></span>%</td>
+                        <td class="border-3"><span id="cloud6am"></span>%</td>
+                        <td class="border-3"><span id="cloud6am"></span>%</td>
+                        <td class="border-3"><span id="cloud6am"></span>%</td>
+                        <td class="border-3"><span id="cloud6am"></span>%</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--end result-->
+    </div>
+</section>
+<!-- end history -->
+
+
+
+
+
+
+
+<script>
+    /*
+        //start forecast
+        document.getElementById("fsearch").addEventListener('click', fsearch)
+        var d = document.getElementById('fdate').value
+        d = d.toString()
+
+        function fsearch() {
+            fetch("http://api.weatherapi.com/v1/forecast.json?key=efa6fd3579784c71a90154509230505&q=" + document.getElementById("fcity").value + "&days=" + d + "&aqi=yes&alerts=yes")
+                .then(r => r.json())
+                .then(r => {
+
+
+
+                    document.getElementById("fresult").setAttribute('class', 'd-inline-block')
+                    document.getElementById('fnotFound').setAttribute('class', 'd-none')
+                    document.getElementById('fcityname').innerHTML = r["location"]["name"] + ',' + r["location"]["region"] + ',' + r["location"]["country"]
+                    document.getElementById('fdate2').innerHTML = 'the next ' + d + 'day'
+                    document.getElementById('fsunrise').innerHTML = r["forecast"]["forecastday"][]["astro"]["sunrise"]
+                    document.getElementById('fsunset').innerHTML = r["forecast"]["forecastday"][document.getElementById('fdate').value]["astro"]["sunset"]
+                    document.getElementById('fmoonrise').innerHTML = r["forecast"]["forecastday"][document.getElementById('fdate').value]["astro"]["moonrise"]
+                    document.getElementById('fmoonset').innerHTML = r["forecast"]["forecastday"][document.getElementById('fdate').value]["astro"]["moonset"]
+                    document.getElementById('fmaxtemp').innerHTML = r["forecast"]["forecastday"][document.getElementById('fdate').value]["day"]["maxtemp_c"]
+                    document.getElementById('fmintemp').innerHTML = r["forecast"]["forecastday"][document.getElementById('fdate').value]["day"]["mintemp_c"]
+                    document.getElementById('fmaxwind').innerHTML = r["forecast"]["forecastday"][document.getElementById('fdate').value]["day"]["maxwind_mph"] *
+                        
+
+
+
+                })
+                .catch(r => {
+
+                    document.getElementById('fnotFound').setAttribute('class', 'd-inline-block  text-danger')
+                    document.getElementById("fresult").setAttribute('class', 'd-none')
+
+                })
+
+        }
+
+        //end forecast
+        
+        //start history
+        document.getElementById("hsearch").addEventListener('click', hsearch)
+        var d = document.getElementById('hdate').value
+        d = d.toString()
+
+        function hsearch() {
+            fetch("http://api.weatherapi.com/v1/forecast.json?key=efa6fd3579784c71a90154509230505&q=" + document.getElementById("fcity").value + "&days=" + d + "&aqi=yes&alerts=yes")
+                .then(r => r.json())
+                .then(r => {
+
+
+
+                    document.getElementById("hresult").setAttribute('class', 'd-inline-block')
+                    document.getElementById('hnotFound').setAttribute('class', 'd-none')
+                    document.getElementById('hcityname').innerHTML = r["location"]["name"] + ',' + r["location"]["region"] + ',' + r["location"]["country"]
+                    document.getElementById('hdate2').innerHTML = 'the next ' + d + 'day'
+                    document.getElementById('hsunrise').innerHTML = r["horecast"]["horecastday"][]["astro"]["sunrise"]
+                    document.getElementById('hsunset').innerHTML = r["horecast"]["horecastday"][document.getElementById('hdate').value]["astro"]["sunset"]
+                    document.getElementById('hmoonrise').innerHTML = r["horecast"]["horecastday"][document.getElementById('hdate').value]["astro"]["moonrise"]
+                    document.getElementById('hmoonset').innerHTML = r["horecast"]["horecastday"][document.getElementById('hdate').value]["astro"]["moonset"]
+                    document.getElementById('hmaxtemp').innerHTML = r["horecast"]["horecastday"][document.getElementById('hdate').value]["day"]["maxtemp_c"]
+                    document.getElementById('hmintemp').innerHTML = r["horecast"]["horecastday"][document.getElementById('hdate').value]["day"]["mintemp_c"]
+                    document.getElementById('hmaxwind').innerHTML = r["horecast"]["horecastday"][document.getElementById('hdate').value]["day"]["maxwind_mph"] *
+
+
+
+
+                })
+                .catch(r => {
+
+                    document.getElementById('hnotFound').setAttribute('class', 'd-inline-block  text-danger')
+                    document.getElementById("hresult").setAttribute('class', 'd-none')
+
+                })
+
+        }
+
+        //end history
+        */
+</script>
